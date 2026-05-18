@@ -1,0 +1,186 @@
+import java.util.Scanner;
+
+public class InputRevision {
+
+    public static void main(String[] args) {
+
+        // Create Scanner object to read keyboard input
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("===== JAVA INPUT REVISION PROGRAM =====");
+
+        /*
+         * ---------------------------------------------------------
+         * 1. FULL LINE STRING INPUT (nextLine)
+         * Reads everything until Enter is pressed.
+         * Spaces are included.
+         * ---------------------------------------------------------
+         */
+        System.out.println("\n1. Enter your full name:");
+        String fullName = sc.nextLine();
+
+        System.out.println("Stored Full Name: " + fullName);
+
+
+        /*
+         * ---------------------------------------------------------
+         * 2. SINGLE TOKEN INPUT (next)
+         * Reads only until space/newline.
+         * Good for one-word inputs.
+         * ---------------------------------------------------------
+         */
+        System.out.println("\n2. Enter your favorite programming language (single word):");
+        String language = sc.next();
+
+        System.out.println("Stored Language: " + language);
+
+
+        /*
+         * ---------------------------------------------------------
+         * 3. INTEGER INPUT (nextInt)
+         * Reads integer only.
+         * IMPORTANT:
+         * Leaves newline (\n) in input buffer.
+         * ---------------------------------------------------------
+         */
+        System.out.println("\n3. Enter your age:");
+        int age = sc.nextInt();
+
+        System.out.println("Stored Age: " + age);
+
+
+        /*
+         * ---------------------------------------------------------
+         * CLEANUP STEP
+         * nextInt() leaves Enter behind.
+         * nextLine() would immediately consume that leftover newline.
+         *
+         * So we manually clear it.
+         * ---------------------------------------------------------
+         */
+        sc.nextLine();
+
+
+        /*
+         * ---------------------------------------------------------
+         * 4. STRING AFTER INTEGER
+         * Demonstrates why cleanup was needed.
+         * ---------------------------------------------------------
+         */
+        System.out.println("\n4. Enter your company name:");
+        String company = sc.nextLine();
+
+        System.out.println("Stored Company: " + company);
+
+
+        /*
+         * ---------------------------------------------------------
+         * 5. DOUBLE INPUT
+         * Reads decimal numbers.
+         * Example: salary, CGPA
+         * ---------------------------------------------------------
+         */
+        System.out.println("\n5. Enter your CGPA:");
+        double cgpa = sc.nextDouble();
+
+        System.out.println("Stored CGPA: " + cgpa);
+
+
+        /*
+         * ---------------------------------------------------------
+         * Cleanup again because nextDouble also leaves newline.
+         * ---------------------------------------------------------
+         */
+        sc.nextLine();
+
+
+        /*
+         * ---------------------------------------------------------
+         * 6. MULTIPLE SEPARATE LINE INPUTS
+         * Each line goes into a separate variable.
+         * ---------------------------------------------------------
+         */
+        System.out.println("\n6. Enter your city:");
+        String city = sc.nextLine();
+
+        System.out.println("Enter your state:");
+        String state = sc.nextLine();
+
+        System.out.println("Enter your country:");
+        String country = sc.nextLine();
+
+        System.out.println("\nAddress Details:");
+        System.out.println(city);
+        System.out.println(state);
+        System.out.println(country);
+
+
+        /*
+         * ---------------------------------------------------------
+         * 7. ARRAY INPUT
+         * Read multiple integers using loop.
+         * ---------------------------------------------------------
+         */
+        System.out.println("\n7. Enter array size:");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter " + n + " integers:");
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+
+        /*
+         * Print array
+         */
+        System.out.println("Array elements:");
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+
+        /*
+         * ---------------------------------------------------------
+         * 8. FIND SUM OF ARRAY
+         * ---------------------------------------------------------
+         */
+        int sum = 0;
+
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+        }
+
+        System.out.println("\nSum = " + sum);
+
+
+        /*
+         * ---------------------------------------------------------
+         * 9. FIND MAX ELEMENT
+         * ---------------------------------------------------------
+         */
+        int max = arr[0];
+
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        System.out.println("Maximum = " + max);
+
+
+        /*
+         * ---------------------------------------------------------
+         * Close Scanner
+         * Good practice.
+         * ---------------------------------------------------------
+         */
+        sc.close();
+
+        System.out.println("\n===== REVISION COMPLETE =====");
+    }
+}
